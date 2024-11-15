@@ -13,13 +13,14 @@ end ConjuntodeRegistros_32x32_b;
 
 architecture arch of ConjuntodeRegistros_32x32_b is
   type mem_t is array (0 to 31) of std_logic_vector ( 31 downto 0 );
-  signal mem: mem_t: = (others => x"00000000");
+
+  signal mem: mem_t := (others => x"00000000");
   begin
     
     puertos: process (clk)
     begin
       if rising_edge (clk) then
-        if (hab_escritura ='1' then )
+        if hab_escritura ='1' then 
            mem(to_integer (unsigned(dir_escritura))) <= dat_escritura;
         end if;
 

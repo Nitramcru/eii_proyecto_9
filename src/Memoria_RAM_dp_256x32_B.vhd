@@ -8,7 +8,7 @@ entity Memoria_RAM_dp_256x32_B is
     hab_escritura :in std_logic_vector (3 downto 0);
     dir_lectura, dir_escritura :in std_logic_vector (6 downto 0);
     dat_escritura :in std_logic_vector (31 downto 0);
-    dat_lectura :out std_logic_vector (31 downto 0);
+    dat_lectura :out std_logic_vector (31 downto 0)
   );
 end Memoria_RAM_dp_256x32_B;
 
@@ -20,7 +20,7 @@ begin
   puerto_lectura : process (clk_lectura)
   begin
     if rising_edge (clk_lectura) then
-      if hab_lectura = '1' then;
+      if hab_lectura = '1' then
       dat_lectura <= mem (to_integer (unsigned(dir_lectura)));
       end if;
     end if;

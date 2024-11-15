@@ -11,7 +11,7 @@ entity Memoria_RAM_512x8_B is
     clk_lectura :in std_logic;
     dir_lectura :in std_logic_vector (8 downto 0);
     hab_lectura :in std_logic;
-    dir_lectura :out std_logic_vector (7 downto 0);
+    dir_lectura :out std_logic_vector (7 downto 0)
   );
 end Memoria_RAM_512x8_B;
 
@@ -29,7 +29,7 @@ begin
         dat_lectura <= men(to_integer (unsigned (dir_lectura)));
       end if;
     end if;
-  end process
+  end process;
 
 
   puerto_escritura: process (clk_escritura)
