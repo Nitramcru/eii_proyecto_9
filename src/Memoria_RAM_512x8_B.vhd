@@ -4,14 +4,15 @@ use IEEE.numeric_std.all;
 
 entity Memoria_RAM_512x8_B is
   port (
-     clk_escritura :in std_logic;
+    clk_escritura :in std_logic;
     dir_escritura :in std_logic_vector (8 downto 0);
     hab_escritura :in std_logic;
     dat_escritura :in std_logic_vector (7 downto 0);
+    
     clk_lectura :in std_logic;
     dir_lectura :in std_logic_vector (8 downto 0);
     hab_lectura :in std_logic;
-    dir_lectura :out std_logic_vector (7 downto 0)
+    dat_lectura :out std_logic_vector (7 downto 0)
   );
 end Memoria_RAM_512x8_B;
 

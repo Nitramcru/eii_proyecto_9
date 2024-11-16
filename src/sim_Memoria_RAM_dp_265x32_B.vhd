@@ -14,7 +14,7 @@ architecture sim of sim_Memoria_RAM_dp_265x32_B is
       hab_escritura :in std_logic_vector (3 downto 0);
       dir_lectura, dir_escritura :in std_logic_vector (6 downto 0);
       dat_escritura :in std_logic_vector (31 downto 0);
-      dat_lectura :out std_logic_vector (31 downto 0);
+      dat_lectura :out std_logic_vector (31 downto 0)
     );
   end component; -- Memoria_RAM_dp_265x32_B
   
