@@ -7,7 +7,7 @@ entity ConjuntodeRegistros_32x32_b is
         dir_escritura, dir_lectura_1 ,dir_lectura_2 :in std_logic_vector (32 downto 0);
         dat_escritura :in std_logic_vector (31 downto 0);
         dat_lectura_1, dat_lectura_2 :out std_logic_vector (31 downto 0)
-  );
+       );
 end ConjuntodeRegistros_32x32_b;
 
 

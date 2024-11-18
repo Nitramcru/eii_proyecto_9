@@ -29,8 +29,6 @@ architecture sim of sim_Memoria_RAM_512x8_B is
   signal dat_escritura_tb : std_logic_vector(7 downto 0) ;
   signal dat_lectura_tb : std_logic_vector(7 downto 0);
 
-
-
 begin
   
   
@@ -55,8 +53,6 @@ end process;
 
 
 
-
-
 estimulo: process
 variable aleatorio : aleatorio_t;
 procedure sig_ciclo is
@@ -70,7 +66,7 @@ begin
   begin
 
     for i in 0 to 99 loop
-      dir <= aleatorio.genera_vector(8);
+      dir <= aleatorio.genera_vector(9);
       dat_escritura_tb <= (others => '0');
       hab_escritura_tb <= '1';
       sig_ciclo;
