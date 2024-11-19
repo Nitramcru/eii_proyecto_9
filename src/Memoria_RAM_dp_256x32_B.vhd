@@ -1,15 +1,20 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity Memoria_RAM_dp_256x32_B is
   port (
-    clk_escritura, clk_lectura :in std_logic;
-    hab_lectura :in std_logic;
+    clk_escritura :in std_logic;
+    dir_escritura :in std_logic_vector (7 downto 0);
     hab_escritura :in std_logic_vector (3 downto 0);
-    dir_lectura, dir_escritura :in std_logic_vector (6 downto 0);
     dat_escritura :in std_logic_vector (31 downto 0);
+   
+    clk_lectura :in std_logic;
+    dir_lectura :in std_logic_vector (7 downto 0);
+    hab_lectura :in std_logic;
     dat_lectura :out std_logic_vector (31 downto 0)
   );
+
 end Memoria_RAM_dp_256x32_B;
 
 architecture arch of Memoria_RAM_dp_256x32_B is

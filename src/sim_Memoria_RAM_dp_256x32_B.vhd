@@ -3,11 +3,11 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use std.env.finish;
 
-entity sim_Memoria_RAM_dp_265x32_B is
-end sim_Memoria_RAM_dp_265x32_B;
+entity sim_Memoria_RAM_dp_256x32_B is
+end sim_Memoria_RAM_dp_256x32_B;
 
-architecture sim of sim_Memoria_RAM_dp_265x32_B is
-  component Memoria_RAM_dp_265x32_B is
+architecture sim of sim_Memoria_RAM_dp_256x32_B is
+  component Memoria_RAM_dp_256x32_B is
     port (
       clk_escritura, clk_lectura :in std_logic;
       hab_lectura :in std_logic;
@@ -16,7 +16,7 @@ architecture sim of sim_Memoria_RAM_dp_265x32_B is
       dat_escritura :in std_logic_vector (31 downto 0);
       dat_lectura :out std_logic_vector (31 downto 0)
     );
-  end component; -- Memoria_RAM_dp_265x32_B
+  end component; -- Memoria_RAM_dp_256x32_B
   
   
   signal entradas : std_logic_vector (1 downto 0);
@@ -26,7 +26,7 @@ begin
  
  
   -- Dispositivo bajo prueba
-  dut : Memoria_RAM_dp_265x32_B port map (A=>entradas(1),B=>entradas(0),Y=>salida);
+  dut : Memoria_RAM_dp_256x32_B port map (A=>entradas(1),B=>entradas(0),Y=>salida);
 
   excitaciones: process
   begin

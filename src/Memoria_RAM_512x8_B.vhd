@@ -2,7 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-
 entity Memoria_RAM_512x8_B is
   port (
     clk_escritura :in std_logic;
