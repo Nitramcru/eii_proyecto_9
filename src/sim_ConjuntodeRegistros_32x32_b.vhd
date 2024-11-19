@@ -30,20 +30,54 @@ begin
   dut : ConjuntodeRegistros_32x32_b port map (clk => clk_tb,
                                               hab_escritura => hab_escritura_tb,
                                               dir_escritura => dir_escritura_tb,
+                                              dat_escritura => dat_escritura_tb,
+
+                                              
                                               dir_lectura_1 => dir_lectura_1_tb,
                                               dir_lectura_2 => dir_lectura_2_tb,
-                                              dat_escritura => dat_escritura_tb,
+
                                               dat_lectura_1 => dat_lectura_1_tb,
                                               dat_lectura_2 => dat_lectura_2_tb);
 
-    reloj: process
-    begin
-      clk <='0';
-      wait for 1 ns;
-      clk <= '1';
-      wait for 1 ns;
+reloj: process
+begin
+  clk <='0';
+wait for 1 ns;
+  clk <= '1';
+wait for 1 ns;
+end process;
+
+
+estimulo: process
+variable aleatorio : aleatorio_t;
+procedure sig_ciclo is
+begin
+  
+  wait until rising_edge (clk);
+  wait for 0.5 ns;
+  end procedure;
+
+
+  begin
+
+    for i in 0 to 99 loop
+      dir <= aleatorio.genera_vector(9);
+      dat_escritura_tb <= (others => '0');
+      hab_escritura_tb <= '1';
+      sig_ciclo;
+
+      dat_escritura_tb <= aleatorio.genera_vector(8);
+      hab_escritura_tb <= aleatorio.genera_bit;
+      sig_ciclo;
+
+      hab_escritura_tb <='0';
+      sig_ciclo;
+
+    end loop;
+
+    sig_ciclo;
+      
+    finish;
     end process;
-
-
 
 end sim;
